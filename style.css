@@ -81,3 +81,18 @@ footer {
     width: 100%;
     margin: auto;
 }
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 8vw;
+    }
+    h2 {
+        font-size: 5vw;
+    }
+    h3 {
+        font-size: 4vw;
+    }
+    #main-content p,
+    #main-content li {
+        font-size: 3vw;
+    }
+}
