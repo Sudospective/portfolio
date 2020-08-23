@@ -1,19 +1,25 @@
+/* Main CSS */
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #381c1c;
     color: #f5cccc;
+    overflow-x: hidden;
 }
 
-header {
-    background: #952c2c;
-    margin: -8px;
-    -webkit-filter: drop-shadow(0px 0px 12px black);
-    -moz-filter: drop-shadow(0px 0px 12px black);
-}
+/* The banner fixing might be kinda hacky and janky. Sorry about that */
 #banner {
+    background: #952c2c;
+    filter: drop-shadow(0px 0px 12px black);
     display: flex;
+    offset-position: -16px;
     flex-direction: column;
     align-content: center;
+    width: 100%;
+    margin: -8px;
+    padding: 8px;
+}
+#banner div {
+    display: inherit;
     width: 100%;
     margin: auto;
 }
@@ -21,9 +27,22 @@ header {
     width: 50%;
     margin: 54px auto 0;
 }
+/* We do our own anchor styling here. Custom color, custom hover pseudo-element, the works. */
+a {
+    color: #952c2c;
+    text-decoration-line: none;
+}
+a:hover {
+    filter: drop-shadow(0px 1px 3px black);
+}
+a:visited {
+    color: #664444;
+}
 #banner h3 {
     margin-bottom: 54px;
 }
+
+/* Main content styling. Most of this is fairly self explanatory.*/
 #main-content {
     width: 75%;
     margin: 128px auto;
@@ -36,8 +55,7 @@ header {
     display: flex;
     align-self: center;
     border-radius: 5%;
-    -webkit-filter: drop-shadow(0px 0px 12px black);
-    -moz-filter: drop-shadow(0px 0px 12px black);
+    filter: drop-shadow(0px 0px 12px black);
 }
 h1,
 h2,
@@ -60,11 +78,21 @@ h3 {
 #main-content p,
 #main-content li {
     font-size: 1.5vw;
+    text-align: justify;
 }
+/* You can observe how OCD I am by the styling I do on a simple horizontal bar. */
 #main-content hr {
     margin-top: 48px;
     margin-bottom: 48px;
 }
+#contact * {
+    text-align: center;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Absolute positioning is usually bad practice. It should be fine for footers as long as it's the LAST thing on the page, and that's exactly what footers should be.*/
 footer {
     background-color: #191b17;
     display: flex;
@@ -76,12 +104,40 @@ footer {
     justify-items: center;
     align-items: center;
 }
+/* ORIgnAL CHaRActER DO nOT STEaL*/
 #copyright {
     text-align: center;
     width: 100%;
     margin: auto;
 }
-@media screen and (max-width: 600px) {
+
+/* CSS animation related styling */
+
+/*
+The way this is implemented as a workaround is very dumb. CSS can only play one animation at a time on one element. So if you want to play two animations on one element, what do you need? Another element. Check the banner. You'll see that the image is animated with a wag and is wrapped in a div that is animated with a pop.
+
+Very cool, CSS3. Very friggin cool.
+*/
+
+.wagging { /* Wagging animation class */
+    animation: wag 1.5s ease-in-out infinite alternate;
+}
+@keyframes wag { /* Wag animation keyframes */
+    from {transform: rotate(2deg);}
+    to {transform: rotate(-2deg);}
+}
+.popping { /* Zooming animation class */
+    transform: scale(0);
+    animation: pop 0.25s ease-out 0.25s 1 forwards;
+}
+@keyframes pop { /* Zoom animation keyframes */
+    0% {transform: scale(0);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+
+/* Viewport width related styling */
+@media screen and (max-width: 600px) { /* yeah we wanna look real good on mobile */
     h1 {
         font-size: 8vw;
     }
