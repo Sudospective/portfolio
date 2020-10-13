@@ -113,8 +113,7 @@ h3 {
 }
 /* You can observe how OCD I am by the styling I do on a simple horizontal bar. */
 #main-content hr {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin: 64px 0;
 }
 
 #main-content > div {
@@ -158,11 +157,20 @@ h3 {
     margin: 12px 0;
     padding: 0;
 }
+.contact-fields textarea {
+    height: 128px;
+}
 
 #submit-field {
-    width: 15%;
+    width: 20%;
     align-self: center;
-    margin: 12px;
+    margin: 6px auto 12px;
+}
+
+.game-embed {
+    width: 100% !important;
+    margin: 36px auto 0 !important;
+    align-self: center;
 }
 
 /* Absolute positioning is usually bad practice. It should be fine for footers as long as it's the LAST thing on the page, and that's exactly what footers should be.*/
