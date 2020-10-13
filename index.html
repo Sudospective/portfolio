@@ -5,17 +5,25 @@
         <!-- Links for styling and favicon, meta for character set and viewport width -->
         <link type="text/css" rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-        <meta name="viewport" content="width=device-width"> <!-- We wanna look good on mobile, right? -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- We wanna look good on mobile, right? -->
         <meta charset="utf-8">
         <title>Sudospective</title>
     </head>
-    <body>
+    <body id="home">
         <!-- Main section -->
         <header id="banner">
             <div class="popping"> <!-- why cant i have two animations on one thing -->
                 <img class="wagging" alt="Welcome to my little corner of the web." src="images/banner.png">
             </div>
             <h3>Software Developer</h3>
+            <hr id="header-line">
+            <nav id="navbar">
+                <ul id="menu">
+                    <li class="nav-link"><a href="#home">Home</a></li>
+                    <li class="nav-link"><a href="#about">About</a></li>
+                    <li class="nav-link"><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </header>
         <main>
             <article id="main-content">
@@ -23,7 +31,8 @@
                 <img id="profile" alt="That's me!" src="images/profile.png">
                 <h1>Hi. I'm Avery.</h1>
                 <!-- Intro section -->
-                <section id="intro">
+                <div id="intro"></div>
+                <section id="intro-sect">
                     <p>I'm a software engineer currently located in Kansas City, Missouri. For me, development is more art than science.</p>
                     <p>Here's some of the things I've been up to:</p>
                     <ul>
@@ -35,16 +44,18 @@
                 </section>
                 <hr>
                 <!-- About section -->
-                <section id="about">
-                    <h2>About Avery</h2>
+                <div id="about"></div>
+                <section id="about-sect">
+                    <h2>About Me</h2>
                     <p>My journey through development began when I was 14 years old, creating short programs in Lua for a game engine called LOVE, or Love2D. Since then I've been creating programs, games, apps, and plugins for various platforms, and I have installed, set up, hosted, and maintained several websites in my past 8 years of software development, including using databases such as SQLite and MySQL, CMS services like Wordpress and Ghost, and query-based web languages like jQuery, PHP, and Handlebars.</p>
                     <p>One of my favorite activities is group coding. Whether it's side-by-side on location, or day-by-day remotely, having others to work with is a great pleasure and even a great review. I've worked with several other seasoned programmers on projects such as video games, software addons, and program optimizations.</p>
                     <p>Surprisingly, coding isn't my only passion. I also enjoy creating music, editing videos, broadcasting games, and watching late-night Netflix with my roommate. Some of them I end up doing on the same project! The creative world of art never ceases to captivate my attention and wonder.</p>
                 </section>
                 <hr>
                 <!-- Contact section -->
-                <section id="contact">
-                    <h2>Contact Avery</h2>
+                <div id="contact"></div>
+                <section id="contact-sect">
+                    <h2>Contact Me</h2>
                     <p>Any questions or comments? Here are some ways you can reach me.</p>
                     <ol>
                         <li><a href="https://www.linkedin.com/in/sudospective">LinkedIn</a></li>
@@ -52,6 +63,21 @@
                         <li><a href="mailto:avery@sudospective.net">Email</a> (please be sure to add a subject)</li>
                         <li><a href="https://t.me/sudospective">Telegram</a></li>
                     </ol>
+                    <br>
+                    <p>You can also fill out this form to send an email to me directly.</p>
+                    <form id="contact-form" action="https://formspree.io/f/mpzopdaw" method="POST">
+                        <label id="email-field" class="contact-fields">
+                            Your email:
+                            <input type="text" name="_replyto">
+                        </label>
+                        <label id="message-field" class="contact-fields">
+                            Your message:
+                            <textarea name="message"></textarea>
+                        </label>
+
+                        <!-- your other form fields go here -->
+                        <button id="submit-field" type="submit">Send</button>
+                    </form>
                 </section>
             </article>
         </main>

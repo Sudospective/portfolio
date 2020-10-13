@@ -6,26 +6,34 @@ html {
     overflow-x: hidden;
 }
 
+#home {
+    position: relative;
+}
+
 /* The banner fixing might be kinda hacky and janky. Sorry about that */
 #banner {
+    position: sticky;
+    z-index: 1;
+    top: 0px;
     background: #952c2c;
     filter: drop-shadow(0px 0px 12px black);
     display: flex;
-    offset-position: -16px;
-    flex-direction: column;
-    align-content: center;
-    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin: -8px;
-    padding: 8px;
 }
-#banner div {
-    display: inherit;
-    width: 100%;
-    margin: auto;
+#banner > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    margin: 12px 0px;
 }
 #banner img {
-    width: 50%;
-    margin: 54px auto 0;
+    width: 100%;
+    margin: 6px 24px;
 }
 /* We do our own anchor styling here. Custom color, custom hover pseudo-element, the works. */
 a {
@@ -39,7 +47,30 @@ a:visited {
     color: #664444;
 }
 #banner h3 {
-    margin-bottom: 54px;
+    font-size: 1vw;
+    margin: 6px 24px;
+    width: 15%;
+}
+#header-line {
+    display: none;
+}
+#navbar {
+    flex-grow: 3;
+    width: 65%;
+}
+#menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.nav-link {
+    list-style: none;
+    padding: 6px 36px;
+    font-size: 1.5vw;
+}
+.nav-link > a {
+    color: #f5cccc;
+    text-decoration: none;
 }
 
 /* Main content styling. Most of this is fairly self explanatory.*/
@@ -85,38 +116,84 @@ h3 {
     margin-top: 48px;
     margin-bottom: 48px;
 }
-#contact * {
+
+#main-content > div {
+    position: relative;
+    top: -192px;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+}
+
+#contact-sect > * {
     text-align: center;
     width: 65%;
     margin-left: auto;
     margin-right: auto;
 }
 
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+    margin-top: 32px;
+    padding: 2.5% 5%;
+    border-radius: 12px;
+    box-shadow: 
+        0px 3px 5px black,
+        0px 0px 2px white;
+}
+.contact-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 12px 0;
+    padding: 0;
+}
+.contact-fields * {
+    width: 100%;
+    margin: 12px 0;
+    padding: 0;
+}
+
+#submit-field {
+    width: 15%;
+    align-self: center;
+    margin: 12px;
+}
+
 /* Absolute positioning is usually bad practice. It should be fine for footers as long as it's the LAST thing on the page, and that's exactly what footers should be.*/
 footer {
     background-color: #191b17;
     display: flex;
-    position: absolute;
-    offset-position: 16px;
-    width: 100%;
+    position: relative;
+    bottom: -16px;
     height: 128px;
-    margin: -8px;
+    margin: 0 -8px;
     justify-items: center;
     align-items: center;
 }
 /* ORIgnAL CHaRActER DO nOT STEaL*/
 #copyright {
     text-align: center;
-    width: 100%;
+    width: 100vw;
     margin: auto;
 }
 
 /* CSS animation related styling */
 
 /*
-The way this is implemented as a workaround is very dumb. CSS can only play one animation at a time on one element. So if you want to play two animations on one element, what do you need? Another element. Check the banner. You'll see that the image is animated with a wag and is wrapped in a div that is animated with a pop.
+    The way this is implemented as a workaround is very dumb.
+    CSS can only play one animation at a time on one element.
+    So if you want to play two animations on one element,
+    what do you need? Another element. Check the banner.
+    You'll see that the image is animated with a wag and is
+    wrapped in a div that is animated with a pop.
 
-Very cool, CSS3. Very friggin cool.
+    Very cool, CSS3. Very friggin cool.
 */
 
 .wagging { /* Wagging animation class */
@@ -138,6 +215,39 @@ Very cool, CSS3. Very friggin cool.
 
 /* Viewport width related styling */
 @media screen and (max-width: 600px) { /* yeah we wanna look real good on mobile */
+    #banner {
+        flex-direction: column;
+        justify-content: center;
+    }
+    #banner > div {
+        width: 100%;
+    }
+    #banner img {
+        max-width: 192px;
+        width: 50%;
+        margin: auto;
+    }
+    #banner > h3 {
+        width: 100%;
+        font-size: 9px;
+    }
+    #header-line {
+        display: initial;
+        width: 85%;
+        border-color: darkred;
+        margin-top: 24px;
+        margin-bottom: 0;
+    }
+    #navbar {
+        width: 100%;
+    }
+    #menu {
+        justify-content: center;
+        padding: 0;
+    }
+    .nav-link {
+        font-size: 2vw;
+    }
     h1 {
         font-size: 8vw;
     }
@@ -147,8 +257,23 @@ Very cool, CSS3. Very friggin cool.
     h3 {
         font-size: 4vw;
     }
+    #main-content {
+        width: 80%
+    }
     #main-content p,
     #main-content li {
+        font-size: 3vw;
+    }
+    #contact-sect * {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #contact-form {
+        width: 75%;
+        margin: auto;
+    }
+    #contact-form * {
         font-size: 3vw;
     }
 }
