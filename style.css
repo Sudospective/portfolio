@@ -113,6 +113,7 @@ h3 {
 }
 /* You can observe how OCD I am by the styling I do on a simple horizontal bar. */
 #main-content hr {
+    border-color: #952c2c;
     margin: 64px 0;
 }
 
