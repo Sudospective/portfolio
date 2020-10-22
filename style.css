@@ -18,8 +18,8 @@ html {
     background: #952c2c;
     filter: drop-shadow(0px 0px 12px black);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: -8px;
 }
@@ -28,12 +28,13 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
+    width: 100%;
     margin: 12px 0px;
 }
 #banner img {
-    width: 100%;
-    margin: 6px 24px;
+    max-width: 192px;
+    width: 50%;
+    margin: auto;
 }
 /* We do our own anchor styling here. Custom color, custom hover pseudo-element, the works. */
 a {
@@ -46,27 +47,30 @@ a:hover {
 a:visited {
     color: #664444;
 }
-#banner h3 {
-    font-size: 1vw;
-    margin: 6px 24px;
-    width: 15%;
+#banner > h3 {
+    width: 100%;
+    font-size: 9px;
 }
 #header-line {
-    display: none;
+    display: initial;
+    width: 85%;
+    border-color: darkred;
+    margin-top: 24px;
+    margin-bottom: 0;
 }
 #navbar {
-    flex-grow: 3;
-    width: 65%;
+    width: 100%;
 }
 #menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 0;
 }
 .nav-link {
-    list-style: none;
     padding: 6px 36px;
-    font-size: 1.5vw;
+    list-style: none;
+    font-size: 2vw;
 }
 .nav-link > a {
     color: #f5cccc;
@@ -75,7 +79,7 @@ a:visited {
 
 /* Main content styling. Most of this is fairly self explanatory.*/
 #main-content {
-    width: 75%;
+    width: 80%;
     margin: 128px auto;
 }
 #profile {
@@ -94,21 +98,21 @@ h3 {
     text-align: center;
 }
 h1 {
-    font-size: 4vw;
+    font-size: 8vw;
     margin-bottom: 64px;
     margin-top: 18px;
 }
 h2 {
-    font-size: 2.5vw;
+    font-size: 5vw;
     margin-bottom: 64px;
     margin-top: 18px;
 }
 h3 {
-    font-size: 2vw;
+    font-size: 4vw;
 }
 #main-content p,
 #main-content li {
-    font-size: 1.5vw;
+    font-size: 3vw;
     text-align: justify;
 }
 /* You can observe how OCD I am by the styling I do on a simple horizontal bar. */
@@ -119,7 +123,7 @@ h3 {
 
 #main-content > div {
     position: relative;
-    top: -192px;
+    top: -256px;
     margin: 0;
     padding: 0;
     width: 0;
@@ -127,7 +131,7 @@ h3 {
 }
 
 #projects-sect h5 {
-    margin: 2px auto;
+    margin: 6px auto;
     padding: 6px;
     border: 1px solid black;
     border-radius: 3px;
@@ -146,23 +150,28 @@ h3 {
 
 #contact-sect > * {
     text-align: center;
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #contact-form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 40%;
-    margin-top: 32px;
+    width: 75%;
+    margin: auto;
     padding: 2.5% 5%;
     border-radius: 12px;
     box-shadow: 
         0px 3px 5px black,
         0px 0px 2px white;
 }
+
+#contact-form * {
+    font-size: 3vw;
+}
+
 .contact-fields {
     display: flex;
     flex-direction: column;
@@ -235,66 +244,70 @@ footer {
 }
 
 /* Viewport width related styling */
-@media screen and (max-width: 600px) { /* yeah we wanna look real good on mobile */
+@media screen and (min-width: 800px) { /* yeah we wanna look real good on mobile */
     #banner {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
     #banner > div {
-        width: 100%;
+        width: 20%;
     }
     #banner img {
-        max-width: 192px;
-        width: 50%;
-        margin: auto;
+        width: 100%;
+        margin: 6px 24px;
     }
     #banner > h3 {
-        width: 100%;
-        font-size: 9px;
+        font-size: 1vw;
+        margin: 6px 24px;
+        width: 15%;
     }
     #header-line {
-        display: initial;
-        width: 85%;
-        border-color: darkred;
-        margin-top: 24px;
-        margin-bottom: 0;
+        display: none;
     }
     #navbar {
-        width: 100%;
+        flex-grow: 3;
+        width: 65%;
     }
     #menu {
-        justify-content: center;
-        padding: 0;
+        justify-content: flex-end;
+        padding: auto;
     }
     .nav-link {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
     h1 {
-        font-size: 8vw;
-    }
-    h2 {
-        font-size: 5vw;
-    }
-    h3 {
         font-size: 4vw;
     }
+    h2 {
+        font-size: 2.5vw;
+    }
+    h3 {
+        font-size: 2vw;
+    }
     #main-content {
-        width: 80%
+        width: 75%;
     }
     #main-content p,
     #main-content li {
-        font-size: 3vw;
+        font-size: 1.5vw;
+    }
+    #main-content > div {
+        top: -192px;
     }
     #contact-sect * {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
     }
     #contact-form {
-        width: 75%;
-        margin: auto;
+        width: 70%;
+        margin-top: 32px;
     }
     #contact-form * {
-        font-size: 3vw;
+        width: 100%;
+        font-size: 1.5vw;
+    }
+    #submit-field {
+        width: 15%;
     }
 }
