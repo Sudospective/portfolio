@@ -130,6 +130,7 @@ h3 {
     height: 0;
 }
 
+/* I have some project buttons I want to make look pretty. */
 #projects-sect h5 {
     margin: 6px 12px 24px;
     padding: 6px;
@@ -139,7 +140,7 @@ h3 {
     color: white;
     background: rgb(126, 168, 62);
 }
-
+/* Hovering over them should change the shadows on them. */
 #projects-sect h5:hover {
     box-shadow:
         0px 3px 5px black,
@@ -238,7 +239,7 @@ footer {
     You'll see that the image is animated with a wag and is
     wrapped in a div that is animated with a pop.
 
-    Very cool, CSS3. Very friggin cool.
+    lemme just add two animations to one element cmooooooooon
 */
 
 .wagging { /* Wagging animation class */
